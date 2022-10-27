@@ -1,2 +1,2 @@
 # dataverse-importer
-Microservice used to import datasets into Dataverse
+Microservice used to import datasets into Dataverse.
