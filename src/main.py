@@ -1,6 +1,6 @@
 import json
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pyDataverse.api import NativeApi
 
 from schema.input import ImporterInput
@@ -23,4 +23,7 @@ def import_metadata(importer_input: ImporterInput):
     response = api.create_dataset(
         importer_input.dataverse_information.dt_alias,
         metadata)
+    if not response.ok:
+        raise HTTPException(status_code=response.status_code,
+                            detail=response.reason)
     return response.json()
