@@ -1,0 +1,5 @@
+# Copy this to the .env file
+
+CONTAINER_NAME=dataverse-importer
+PORT=8090
+APPLICATION_DIR=src
