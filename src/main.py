@@ -55,5 +55,5 @@ def import_metadata(importer_input: ImporterInput):
         metadata)
     if not response.ok:
         raise HTTPException(status_code=response.status_code,
-                            detail=response.reason)
+                            detail=response.json())
     return response.json()
