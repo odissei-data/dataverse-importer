@@ -10,4 +10,5 @@ class DataverseInformation(BaseModel):
 
 class ImporterInput(BaseModel):
     metadata: list | dict | Any
+    doi: str = Field(example="doi:10.5072/FK2/1YCZOL")
     dataverse_information: DataverseInformation
