@@ -50,6 +50,7 @@ def import_metadata(importer_input: ImporterInput):
     metadata = json.dumps(importer_input.metadata)
     api = NativeApi(importer_input.dataverse_information.base_url,
                     importer_input.dataverse_information.api_token)
+    # TODO: pid should be parameter of the request, not fetched from metadata.
     try:
         pid = importer_input.metadata["datasetVersion"]["datasetPersistentId"]
     except KeyError:
