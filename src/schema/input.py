@@ -9,5 +9,6 @@ class DataverseInformation(BaseModel):
 
 
 class ImporterInput(BaseModel):
+    doi: str = None
     metadata: list | dict | Any
     dataverse_information: DataverseInformation

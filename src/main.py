@@ -50,10 +50,12 @@ def import_metadata(importer_input: ImporterInput):
     metadata = json.dumps(importer_input.metadata)
     api = NativeApi(importer_input.dataverse_information.base_url,
                     importer_input.dataverse_information.api_token)
+
     response = api.create_dataset(
         importer_input.dataverse_information.dt_alias,
-        metadata)
+        metadata, pid=importer_input.doi)
+
     if not response.ok:
         raise HTTPException(status_code=response.status_code,
-                            detail=response.reason)
+                            detail=response.json())
     return response.json()
