@@ -1,4 +1,5 @@
 from typing import Any
+from io import FileIO
 from pydantic import BaseModel, Field
 
 
@@ -11,4 +12,8 @@ class DataverseInformation(BaseModel):
 class ImporterInput(BaseModel):
     doi: str = None
     metadata: list | dict | Any
+    dataverse_information: DataverseInformation
+
+class FileInput(BaseModel):
+    doi: str
     dataverse_information: DataverseInformation

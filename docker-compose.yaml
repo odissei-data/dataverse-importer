@@ -1,11 +1,17 @@
 services:
-  application:
+  dataverse-importer:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: ${CONTAINER_NAME}
-    command: ["uvicorn", "main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "${PORT}"]
+    command: ["uvicorn", "main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "${PORT}", "--reload"]
     volumes:
-      - "./${APPLICATION_DIR}:/${APPLICATION_DIR}"
+      - "./${APPLICATION_DIR}:/root/${APPLICATION_DIR}"
     ports:
       - "${PORT}:${PORT}"
+    networks:
+      - prefect
+
+networks:
+  prefect:
+    external: true
