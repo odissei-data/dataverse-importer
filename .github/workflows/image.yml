@@ -33,5 +33,8 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_PASSWORD }}
       - name: Push to dockerhub
         run: |
-          docker build . --file Dockerfile --tag fjodorvr/dataverse-importer:${{ env.version }}
+          docker build . --file Dockerfile \
+            -t fjodorvr/dataverse-importer:${{ env.version }} \
+            -t fjodorvr/dataverse-importer:latest
           docker push fjodorvr/dataverse-importer:${{ env.version }}
+          docker push fjodorvr/dataverse-importer:latest
