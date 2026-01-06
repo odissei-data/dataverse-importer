@@ -3,3 +3,6 @@
 CONTAINER_NAME=dataverse-importer
 PORT=8090
 APPLICATION_DIR=src
+
+# Comma-separated list of allowed Dataverse base URLs (SSRF protection)
+ALLOWED_BASE_URLS=https://portal.odissei.nl,https://portal.staging.odissei.nl

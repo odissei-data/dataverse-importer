@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dataverse-importer"
-version = "0.1.1"
+version = "0.1.2"
 description = "A project allowing one to set up a FastAPI based Microservice, using cookiecutter"
 authors = ["Fjodor van Rijsselberg"]
 
